@@ -1,6 +1,12 @@
 import barcode
 from barcode.writer import ImageWriter
-ean = barcode.get('ean13', '123456789102', writer=ImageWriter())
-filename = ean.save('ean13')
-filename
-print('finish!')
+ean = barcode.get('CODE128', '1234567890123456', writer=ImageWriter())
+options = {
+  'module_width': 1,
+  'module_height': 20,
+  'quiet_zone': 20,
+  'font_size': 40,
+  'text_distance': 1
+}
+
+filename = ean.save('CODE128', options=options)
